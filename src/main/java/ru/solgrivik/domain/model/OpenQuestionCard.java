@@ -1,11 +1,11 @@
 package ru.solgrivik.domain.model;
 
 public class OpenQuestionCard {
+    private final Long id;
     private final String question;
     private final String expectedAnswer;
-    private final Long id;
 
-    public OpenQuestionCard(String question, String expectedAnswer, Long id) {
+    public OpenQuestionCard(Long id, String question, String expectedAnswer) {
         if (question == null || question.isEmpty()) {
             throw new IllegalArgumentException("Был введён пустой вопрос");
         }
@@ -25,6 +25,10 @@ public class OpenQuestionCard {
 
     public Long getId(){
         return id;
+    }
+
+    public String getExpectedAnswer() {
+        return expectedAnswer;
     }
 
     public boolean checkAnswer (String answer) {

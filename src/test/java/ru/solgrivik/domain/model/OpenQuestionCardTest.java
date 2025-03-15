@@ -13,7 +13,7 @@ class OpenQuestionCardTest {
 
     @BeforeEach
     void setUp(){
-        card = new OpenQuestionCard(question, expectedAnswer, id);
+        card = new OpenQuestionCard(id, question, expectedAnswer);
     }
 
     @Test
@@ -31,12 +31,12 @@ class OpenQuestionCardTest {
     @Test
     @DisplayName("При вводе пустого вопроса выбрасывается исключение")
     void having_nullQuestion_when_setCard_then_exceptionThrown() {
-        Assertions.assertThrowsExactly(IllegalArgumentException.class, () -> new OpenQuestionCard(null, expectedAnswer, id));
+        Assertions.assertThrowsExactly(IllegalArgumentException.class, () -> new OpenQuestionCard(id, null, expectedAnswer));
     }
 
     @Test
     @DisplayName("При отсутствии ответа на введённый вопрос выбрасывается исключение")
     void having_nullExpectedAnswer_when_setCard_then_exceptionThrown() {
-        Assertions.assertThrowsExactly(IllegalArgumentException.class, () -> new OpenQuestionCard(question, null, id));
+        Assertions.assertThrowsExactly(IllegalArgumentException.class, () -> new OpenQuestionCard(id, question, null));
     }
 }

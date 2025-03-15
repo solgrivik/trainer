@@ -37,7 +37,7 @@ public class ConsoleController {
         String expectedAnswer = scanner.nextLine();
         System.out.println("Введите ID карточки");
         Long id = scanner.nextLong();
-        OpenQuestionCard card = new OpenQuestionCard(question, expectedAnswer, id);
+        OpenQuestionCard card = new OpenQuestionCard(id, question, expectedAnswer);
         service.save(card);
     }
 
