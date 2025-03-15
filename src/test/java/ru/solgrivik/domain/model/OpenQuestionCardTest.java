@@ -8,11 +8,12 @@ import org.junit.jupiter.api.Test;
 class OpenQuestionCardTest {
     private static final String question = "What is the highest mountain in the World?";
     private static final String expectedAnswer = "Everest";
+    private static final Long id = 12345L;
     private OpenQuestionCard card;
 
     @BeforeEach
     void setUp(){
-        card = new OpenQuestionCard(question, expectedAnswer);
+        card = new OpenQuestionCard(question, expectedAnswer, id);
     }
 
     @Test
@@ -30,12 +31,12 @@ class OpenQuestionCardTest {
     @Test
     @DisplayName("При вводе пустого вопроса выбрасывается исключение")
     void having_nullQuestion_when_setCard_then_exceptionThrown() {
-        Assertions.assertThrowsExactly(IllegalArgumentException.class, () -> new OpenQuestionCard(null, expectedAnswer));
+        Assertions.assertThrowsExactly(IllegalArgumentException.class, () -> new OpenQuestionCard(null, expectedAnswer, id));
     }
 
     @Test
     @DisplayName("При отсутствии ответа на введённый вопрос выбрасывается исключение")
     void having_nullExpectedAnswer_when_setCard_then_exceptionThrown() {
-        Assertions.assertThrowsExactly(IllegalArgumentException.class, () -> new OpenQuestionCard(question, null));
+        Assertions.assertThrowsExactly(IllegalArgumentException.class, () -> new OpenQuestionCard(question, null, id));
     }
 }
