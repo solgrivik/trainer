@@ -10,7 +10,7 @@ public class OpenQuestionCard {
             throw new IllegalArgumentException("Был введён пустой вопрос");
         }
 
-        if (expectedAnswer == null) {
+        if (expectedAnswer == null || expectedAnswer.isEmpty()) {
             throw new IllegalArgumentException("Отсутствует ответ на введённый вопрос");
         }
 
