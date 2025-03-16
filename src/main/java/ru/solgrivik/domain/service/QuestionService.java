@@ -1,6 +1,7 @@
 package ru.solgrivik.domain.service;
 
 import org.springframework.stereotype.Service;
+import ru.solgrivik.domain.model.BlankOpenQuestionCard;
 import ru.solgrivik.domain.model.OpenQuestionCard;
 import ru.solgrivik.domain.repo.QuestionRepository;
 
@@ -49,7 +50,7 @@ public class QuestionService {
         return repository.findById(card.getId()).isPresent();
     }
 
-    public void save(OpenQuestionCard card) {
+    public void save(BlankOpenQuestionCard card) {
         if (isCardInvalid(card)) {
             return;
         }

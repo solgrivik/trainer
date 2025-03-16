@@ -1,5 +1,6 @@
 package ru.solgrivik.controller;
 
+import ru.solgrivik.domain.model.BlankOpenQuestionCard;
 import ru.solgrivik.domain.model.OpenQuestionCard;
 import ru.solgrivik.domain.service.QuestionService;
 
@@ -37,7 +38,7 @@ public class ConsoleController {
         String expectedAnswer = scanner.nextLine();
         System.out.println("Введите ID карточки");
         Long id = scanner.nextLong();
-        OpenQuestionCard card = new OpenQuestionCard(id, question, expectedAnswer);
+        BlankOpenQuestionCard card = new BlankOpenQuestionCard(id, question, expectedAnswer);
         service.save(card);
     }
 
