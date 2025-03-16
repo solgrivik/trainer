@@ -1,6 +1,7 @@
 package ru.solgrivik.storage;
 
 import org.springframework.stereotype.Repository;
+import ru.solgrivik.domain.model.BlankOpenQuestionCard;
 import ru.solgrivik.domain.model.OpenQuestionCard;
 import ru.solgrivik.domain.repo.QuestionRepository;
 
@@ -29,12 +30,12 @@ public class QuestionInMemoryStorage implements QuestionRepository {
     }
 
     @Override
-    public void add(OpenQuestionCard card) {
+    public void add(BlankOpenQuestionCard card) {
         cards.put(card.getId(), card);
     }
 
     @Override
-    public void update(OpenQuestionCard card) {
+    public void update(BlankOpenQuestionCard card) {
         cards.put(card.getId(), card);
     }
 
