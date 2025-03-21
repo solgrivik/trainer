@@ -1,6 +1,7 @@
 package ru.solgrivik.dao;
 
 import org.springframework.stereotype.Repository;
+import ru.solgrivik.domain.model.BlankOpenQuestionCard;
 import ru.solgrivik.domain.model.OpenQuestionCard;
 import ru.solgrivik.domain.repo.QuestionRepository;
 
@@ -16,7 +17,7 @@ public class QuestionJdbcDao implements QuestionRepository {
             CREATE TABLE cards (
               id int PRIMARY KEY,
               question VARCHAR(100),
-              expectedAnswer VARCHAR(40),
+              expectedAnswer VARCHAR(40)
             )
             """;
     private static final String FIND_ALL_QUERY = """
@@ -93,7 +94,7 @@ public class QuestionJdbcDao implements QuestionRepository {
     }
 
     @Override
-    public void add(OpenQuestionCard card) {
+    public void add(BlankOpenQuestionCard card) {
         try (Connection connection = dataSource.getConnection();
              PreparedStatement statement = connection.prepareStatement(INSERT_CARD_QUERY);) {
             statement.setString(1, String.valueOf(card.getId()));
@@ -109,7 +110,7 @@ public class QuestionJdbcDao implements QuestionRepository {
     }
 
     @Override
-    public void update(OpenQuestionCard card) {
+    public void update(BlankOpenQuestionCard card) {
         try (Connection connection = dataSource.getConnection();
              PreparedStatement statement = connection.prepareStatement(UPDATE_CARD_QUERY);) {
             statement.setString(1, String.valueOf(card.getId()));
