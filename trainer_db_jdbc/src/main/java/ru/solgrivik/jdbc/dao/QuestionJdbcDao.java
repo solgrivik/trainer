@@ -1,4 +1,4 @@
-package ru.solgrivik.dao;
+package ru.solgrivik.jdbc.dao;
 
 import org.springframework.stereotype.Repository;
 import ru.solgrivik.domain.model.BlankOpenQuestionCard;
@@ -99,9 +99,6 @@ public class QuestionJdbcDao implements QuestionRepository {
              PreparedStatement statement = connection.prepareStatement(INSERT_CARD_QUERY);) {
             statement.setString(1, String.valueOf(card.getId()));
             statement.setString(2, card.getQuestion());
-            //Вопрос в том, как добавить ответ: в созданном классе это приватное поле.
-            //Можно пойти через костыльный get-тер ответа, что и сделано, но по идее так работать не должно.
-            //Была мысль пойти через checkAnswer, но будто это совсем ужасно
             statement.setString(3, card.getExpectedAnswer());
             statement.execute();
         } catch (SQLException e) {

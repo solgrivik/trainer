@@ -1,9 +1,10 @@
-package ru.solgrivik.domain.model;
+package java.ru.solgrivik.domain.model;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import ru.solgrivik.domain.model.OpenQuestionCard;
 
 class OpenQuestionCardTest {
     private static final String question = "What is the highest mountain in the World?";

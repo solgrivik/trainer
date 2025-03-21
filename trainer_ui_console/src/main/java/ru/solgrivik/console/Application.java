@@ -1,9 +1,9 @@
-package ru.solgrivik;
+package ru.solgrivik.console;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
-import ru.solgrivik.controller.ConsoleController;
-import ru.solgrivik.config.SpringConfig;
+import ru.solgrivik.console.config.SpringConfig;
+import ru.solgrivik.console.controller.ConsoleController;
 
 public class Application {
     public static void main(String[] args) {

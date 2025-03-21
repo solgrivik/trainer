@@ -1,4 +1,4 @@
-package ru.solgrivik.controller;
+package ru.solgrivik.console.controller;
 
 import ru.solgrivik.domain.model.BlankOpenQuestionCard;
 import ru.solgrivik.domain.model.OpenQuestionCard;
