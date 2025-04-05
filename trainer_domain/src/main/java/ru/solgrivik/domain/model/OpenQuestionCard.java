@@ -1,6 +1,6 @@
 package ru.solgrivik.domain.model;
 
-public sealed class OpenQuestionCard permits BlankOpenQuestionCard{
+    public sealed class OpenQuestionCard permits BlankOpenQuestionCard{
     private final Long id;
     private final String question;
     protected final String expectedAnswer;

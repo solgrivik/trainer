@@ -72,7 +72,7 @@ public class QuestionJdbcDao implements QuestionRepository {
     }
 
     @Override
-    public Optional<OpenQuestionCard> findById(Long id) {
+    public Optional<BlankOpenQuestionCard> findById(Long id) {
         List<OpenQuestionCard> cards = new ArrayList<>();
         try (Connection connection = dataSource.getConnection();
              PreparedStatement statement = connection.prepareStatement(FIND_BY_ID_QUERY);) {
@@ -90,7 +90,7 @@ public class QuestionJdbcDao implements QuestionRepository {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        return cards.isEmpty() ? Optional.empty() : Optional.of(cards.get(0));
+        return cards.isEmpty() ? Optional.empty() : Optional.of((BlankOpenQuestionCard) cards.get(0));
     }
 
     @Override
