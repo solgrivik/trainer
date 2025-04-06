@@ -25,7 +25,7 @@ public class QuestionService {
         return repository.findAll();
     }
 
-    public Optional<OpenQuestionCard> getById(Long id) {
+    public Optional<BlankOpenQuestionCard> getById(Long id) {
         if (Objects.isNull(id)) {
             return Optional.empty();
         }
@@ -36,7 +36,7 @@ public class QuestionService {
         return repository.findAll();
     }
 
-    public Optional<OpenQuestionCard> findById(Long id){
+    public Optional<BlankOpenQuestionCard> findById(Long id){
         if (Objects.isNull(id)) {
             return Optional.empty();
         }

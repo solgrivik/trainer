@@ -1,5 +1,7 @@
 package ru.solgrivik.api.controller;
 
+import io.swagger.v3.oas.annotations.Operation;
+import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -7,6 +9,9 @@ import org.springframework.web.bind.annotation.*;
 import ru.solgrivik.api.dto.OpenQuestionCardDto;
 import ru.solgrivik.api.mapper.QuestionDtoMapper;
 import ru.solgrivik.domain.service.QuestionService;
+import ru.solgrivik.spring.hibernate.entity.OpenQuestionCardEntity;
+
+import java.util.List;
 
 @Controller
 @RequestMapping(value = "/card")
@@ -18,6 +23,15 @@ public class QuestionController {
         this.questionService = questionService;
         this.mapper = mapper;
     }
+
+    @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
+    public List<OpenQuestionCardDto> list() {
+        return mapper.mapToDto(questionService.getAll());
+    }
+
+    @Operation(summary = "Добавление новой задачи",
+            description = "Создает новую задачу"
+    )
 
     @GetMapping("/new")
     public String newProject(Model model) {
@@ -44,4 +58,5 @@ public class QuestionController {
         model.addAttribute("cards", mapper.mapToDto(questionService.getAll()));
         return "main";
     }
+
 }

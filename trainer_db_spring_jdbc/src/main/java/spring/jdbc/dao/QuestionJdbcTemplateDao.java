@@ -2,7 +2,6 @@ package spring.jdbc.dao;
 
 import org.springframework.jdbc.core.JdbcTemplate;
 
-import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 import ru.solgrivik.domain.model.BlankOpenQuestionCard;
 import ru.solgrivik.domain.model.OpenQuestionCard;
@@ -57,7 +56,7 @@ public class QuestionJdbcTemplateDao implements QuestionRepository {
     }
 
     @Override
-    public Optional<OpenQuestionCard> findById(Long id) {
+    public Optional<BlankOpenQuestionCard> findById(Long id) {
         List<OpenQuestionCard> cards = jdbcTemplate.query(FIND_BY_ID_QUERY,
                 (ResultSet rs, int rowNum) ->
                         new OpenQuestionCard(
@@ -66,7 +65,7 @@ public class QuestionJdbcTemplateDao implements QuestionRepository {
                                 rs.getString("expectedAnswer")
                         ),
                 id);
-        return cards.isEmpty() ? Optional.empty() : Optional.of(cards.get(0));
+        return cards.isEmpty() ? Optional.empty() : Optional.of((BlankOpenQuestionCard) cards.get(0));
     }
 
     @Override

@@ -40,14 +40,14 @@ public class QuestionHibernateDao implements QuestionRepository {
 
     @Override
     @Transactional(readOnly = true)
-    public Optional<OpenQuestionCard> findById(Long id) {
+    public Optional<BlankOpenQuestionCard> findById(Long id) {
         List<OpenQuestionCardEntity> entity =entityManager.createQuery(
             "SELECT card FROM OpenQuestionCardEntity card WHERE card.id = ?1",
                 OpenQuestionCardEntity.class
         ).setParameter(1, id).getResultList();
         if (!entity.isEmpty()) {
             OpenQuestionCard card = mapper.mapToModel(entity.get(0));
-            return Optional.of(card);
+            return Optional.of((BlankOpenQuestionCard) card);
         } else {
             return Optional.empty();
         }
